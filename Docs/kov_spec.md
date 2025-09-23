@@ -36,3 +36,5 @@ A felület legyen reszponzív, azaz különböző eszközökön (asztali gép, t
 | 04    | Newhabit weboldal   | 1.0   | Itt tudnak a felhasználók új szokást hozzáadni a fiókjukhoz.   |
 | 05    | Viewhabit weboldal   | 1.0   | Itt tudják a felhasználók a már hozzáadott szokásukat részletesebben megtekinteni.   |
 | 06    | Datadelete weboldal   | 1.0   | Itt tudják a felhasználók az elmentett adataikat törölni.   |
+| 07    | Adatbázis   | 1.0   | A felhasználói adatok, szokások és beállítások biztonságos tárolását végzi.   |
+| 08    | Backend   | 1.0   | Feldolgozza a felhasználói kéréseket, kapcsolatot tart az adatbázissal.   |

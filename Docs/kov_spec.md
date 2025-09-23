@@ -14,3 +14,10 @@ Vágyálmunk az, hogy legyen egy hely, ahol ügyfeleink nyomoon követhetik a sz
 A rendszer üzemeltetése egyszerű és fenntartható lesz, mivel egy szimpla kialakítást és kódbázist élvez, így hosszú távon is alkalmas marad a felhasználók támogatására.
 Fontos számunkra a letisztult felhasználói élmény, amely ösztönzi a rendszer napi használatát. Emellett a bővíthetőség is prioritás, hogy a jövőbeni igényekhez könnyedén igazíthassuk a funkciókat.
 
+## 3. Igényelt funkciók
+3.1 Új szokás hozzáadása
+3.2 A szokások kategorizálása => jó/rossz
+3.3 Adatok csoportosítása szokásonként => streak-ek követése
+3.4 Adatok törlése
+3.5 Egyéni felhasználók
+

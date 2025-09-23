@@ -30,6 +30,6 @@ A felület legyen reszponzív, azaz különböző eszközökön (asztali gép, t
 
 | ID | Név | Verzió | Leírás |
 |----------|----------|----------|----------|
-|     |    |    |    |
+| 01    | Index weboldal   | 1.0   | Itt tudnak majd a felhasználók bejelentkezni.   |
 |     |    |    |    |
 |     |    |    |    |

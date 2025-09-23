@@ -12,5 +12,5 @@ Az alkalmazás célja nemcsak a szokások naplózása, hanem a felhasználók mo
 
 Vágyálmunk az, hogy legyen egy hely, ahol ügyfeleink nyomoon követhetik a szokásaikat. Célunk, hogy ügyfeleink egy helyen láthassák az adataikat privát módon. A rendszer legyen künnyen kezelhető.
 A rendszer üzemeltetése egyszerű és fenntartható lesz, mivel egy szimpla kialakítást és kódbázist élvez, így hosszú távon is alkalmas marad a felhasználók támogatására.
-
+Fontos számunkra a letisztult felhasználói élmény, amely ösztönzi a rendszer napi használatát. Emellett a bővíthetőség is prioritás, hogy a jövőbeni igényekhez könnyedén igazíthassuk a funkciókat.
 

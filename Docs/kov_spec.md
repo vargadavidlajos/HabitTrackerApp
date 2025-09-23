@@ -28,6 +28,9 @@ A web felület szabványos eszközökkel készüljön, html/css/javascript. A fe
 A rendszernek biztonságos adatkezelést kell biztosítania, ideértve az jelszavak titkosított tárolását.
 A felület legyen reszponzív, azaz különböző eszközökön (asztali gép, tablet, mobil) is megfelelően működjön.
 
+## 5. Követelménylista
+
+
 | ID | Név | Verzió | Leírás |
 |----------|----------|----------|----------|
 | 01    | Index weboldal   | 1.0   | Itt tudnak a felhasználók bejelentkezni.   |

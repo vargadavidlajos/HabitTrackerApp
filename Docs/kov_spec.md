@@ -33,3 +33,6 @@ A felület legyen reszponzív, azaz különböző eszközökön (asztali gép, t
 | 01    | Index weboldal   | 1.0   | Itt tudnak a felhasználók bejelentkezni.   |
 | 02    | Regisztráció weboldal   | 1.0   | Itt tudnak a felhasználók fiókot regisztrálni.   |
 | 03    | Mainpage weboldal   | 1.0   | Itt találhatóak a felhasználó által hozzáadott szokások.   |
+| 04    | Newhabit weboldal   | 1.0   | Itt tudnak a felhasználók új szokást hozzáadni a fiókjukhoz.   |
+| 05    | Viewhabit weboldal   | 1.0   | Itt tudják a felhasználók a már hozzáadott szokásukat részletesebben megtekinteni.   |
+| 06    | Datadelete weboldal   | 1.0   | Itt tudják a felhasználók az elmentett adataikat törölni.   |

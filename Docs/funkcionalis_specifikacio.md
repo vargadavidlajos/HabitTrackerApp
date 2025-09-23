@@ -11,7 +11,7 @@ ID        Név        Verzió        Leírás
 
 
 ## 4. Igényelt üzleti folyamatok modellje
-
+![Alt text](flowchart.png "Habit Tracker page layout.")
 ## 5. Használati esetek
 
 ## 6. Képernyő tervek

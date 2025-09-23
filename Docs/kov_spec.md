@@ -8,4 +8,9 @@ A rendszer lehetőséget nyújt új szokások felvételére, kategorizálására
 A megoldás webes felületen keresztül lenne érhető, az adatok pedig egy adatbázisban lennének tárolva. A felület reszponzív kialakítású, ezért számítógépen és mobil eszközökön is kényelmesen használható. A projekt során kiemelten fontos szempont az adatvédelem, így minden fejlesztés a GDPR előírások figyelembevételével történik. 
 Az alkalmazás célja nemcsak a szokások naplózása, hanem a felhasználók motiválása és az egészségesebb életmód elősegítése is, amellyel a cég erősíti ügyfélkapcsolatait és szolgáltatásainak értékét. Szeretnénk ha a rendszer könnyen üzemeltethető lenne és és kis kiadással járna.
 
+## 2. Vágyálom rendszer
+
+Vágyálmunk az, hogy legyen egy hely, ahol ügyfeleink nyomoon követhetik a szokásaikat. Célunk, hogy ügyfeleink egy helyen láthassák az adataikat privát módon. A rendszer legyen künnyen kezelhető.
+A rendszer üzemeltetése egyszerű és fenntartható lesz, mivel egy szimpla kialakítást és kódbázist élvez, így hosszú távon is alkalmas marad a felhasználók támogatására.
+
 

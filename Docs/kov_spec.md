@@ -27,3 +27,6 @@ Fontos számunkra a letisztult felhasználói élmény, amely ösztönzi a rends
 A web felület szabványos eszközökkel készüljön, html/css/javascript. A felhasználókat azonosító web oldalak esetében szükséges jogszabályokat be kell tartani: GDPR.
 A rendszernek biztonságos adatkezelést kell biztosítania, ideértve az jelszavak titkosított tárolását.
 A felület legyen reszponzív, azaz különböző eszközökön (asztali gép, tablet, mobil) is megfelelően működjön.
+
+## 5. Követelménylista
+ID    Név    Verzió    Leírás

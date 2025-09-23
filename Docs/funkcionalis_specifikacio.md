@@ -6,4 +6,16 @@ A projekt célja egy szokáskövető webalkalmazás fejlesztése, amely segíti 
 ## 2. Jelenlegi helyzet
 A megrendelő, egy bármilyen eszközről könnyen elérhető szokás követő (Habit Tracker) webalkalmazást szeretne. Ezt az alkalmazást az ügyfeleinek ajánjlaná, hogy jobbá tegye életüket. A XXI. század megköveteli, hogy mindez hálózaton is elérhető legyen
 
+## 3. Követlemény lista
+ID        Név        Verzió        Leírás
+
+
+## 4. Igényelt üzleti folyamatok modellje
+
+## 5. Használati esetek
+
+## 6. Képernyő tervek
+
+## 7. Forgatókönyv
+
 

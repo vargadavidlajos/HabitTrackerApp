@@ -22,6 +22,20 @@ A megrendelő, egy bármilyen eszközről könnyen elérhető szokás követő (
 ## 4. Igényelt üzleti folyamatok modellje
 ![Alt text](flowchart.png "Habit Tracker page layout.")
 ## 5. Használati esetek
+Bejelentkezés
+- A felhasználó megadja az email-címét és jelszavát, az alkalmazás ellenőrzi az adatbázisban, és belépteti.
+
+Regisztráció
+- A felhasználó megadja az adatait, az alkalmazás új fiókot hoz létre.
+
+Új szokás hozzáadása
+- A felhasználó megadja az új szokás nevét és típusát. Az alkalmazás eltárolja az adatbázisban.
+
+Szokás megtekintése
+- A felhasználó részletes statisztikát lát a szokásairól (pl. hány nap teljesült egymás után -> streak).
+
+Szokás törlése
+- A felhasználó törli a szokását, az alkalmazás frissíti az adatbázist.
 
 ## 6. Képernyő tervek
 

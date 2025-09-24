@@ -26,5 +26,13 @@ A megrendelő, egy bármilyen eszközről könnyen elérhető szokás követő (
 ## 6. Képernyő tervek
 
 ## 7. Forgatókönyv
+**Új szokás felvétele és követése**
 
+- A felhasználó megnyitja az alkalmazást, és bejelentkezik a fiókjába.
+- A főoldalon kiválasztja a "+" gombot a jobb felső sarokban.
+- Megadja a szokás nevét ("Futás"), típusát (pozitív), és menti.
+- A rendszer eltárolja a szokást az adatbázisban, és megjeleníti a főoldalon.
+- Másnap a felhasználó teljesíti a szokást, és az alkalmazásban kipipálja.
+- A rendszer rögzíti a teljesítést, frissíti a statisztikát és jelzi, hogy 1 napos streak indult.
+- A felhasználó a szokásra nyomva visszanézi a teljesítési arányát és motivációt kap.
 

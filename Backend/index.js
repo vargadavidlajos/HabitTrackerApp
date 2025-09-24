@@ -40,6 +40,7 @@ app.get('/login', async (req, res) => {
         res.status(400).json({ text: "Bad Request" })
     } finally {
         if (connection) await connection.end()
+        //close connection at the end
     }
 })
 

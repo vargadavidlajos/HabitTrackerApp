@@ -38,6 +38,11 @@ Szokás törlése
 - A felhasználó törli a szokását, az alkalmazás frissíti az adatbázist.
 
 ## 6. Képernyő tervek
+<div style="display: flex; gap: 10px;">
+  <img src="HabitsApp-Login-Concept2.png" style="width: 250px;">
+  <img src="HabitsApp-Register-Concept.png" style="width: 250px;">
+  <img src="HabitsApp-Concept2.png" style="width: 250px;">
+</div>
 
 ## 7. Forgatókönyv
 **Új szokás felvétele és követése**

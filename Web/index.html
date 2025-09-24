@@ -19,6 +19,19 @@
                 return null;
             }
         }
+
+
+        async function sendData(data, SQL) {
+            const response = await fetch('http://localhost:9670', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({column1: 'Value1', column2: 'Value2'})
+            });
+            const result = await response.text();
+            console.log(result);
+        }
     </script>
 </head>
 

@@ -1,27 +1,26 @@
 document.getElementById("register-form").addEventListener("submit", function(e) {
-  e.preventDefault(); // ne küldje el azonnal
+  e.preventDefault(); 
 
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value;
   const confirmPassword = document.getElementById("confirm-password").value;
 
   if (password !== confirmPassword) {
-    alert("A két jelszó nem egyezik!");
+    alert("The two passwords don't match!");
     return;
   }
   if (password.length < 8) {
-    alert("A jelszónak legalább 8 karakter hosszúnak kell lennie!");
+    alert("The password must be at least 8 characters long!");
     return;
   }
   if (!/[A-Z]/.test(password)) {
-    alert("A jelszónak tartalmaznia kell legalább 1 nagybetűt!");
+    alert("The password must contain at least 1 capital letter (A-Z)!");
     return;
   }
   if (!/[0-9]/.test(password)) {
-    alert("A jelszónak tartalmaznia kell legalább 1 számot!");
+    alert("The password must contain at least 1 number!");
     return;
   }
-
   // egyelőre csak teszt üzenet
-  alert(`Sikeres regisztráció!\nFelhasználónév: ${username}`);
+  alert(`Registration successful!\ Username: ${username}`);
 });

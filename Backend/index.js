@@ -1,11 +1,13 @@
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2/promise');
 const cors = require('cors');
 
 const app = express();
 const PORT = 9670;
 
-app.use(cors());
+app.use(cors({
+    origin: "*"
+}));
 app.use(express.json());
 
 
@@ -13,7 +15,7 @@ const getConnection = async () => {
     return await mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        password: '',
+        password: 'pmamysql',
         database: 'HabitTracker',
     });
 };
@@ -22,18 +24,45 @@ app.get('/', (req, res) => {
     res.send("Hello from Habit Tracker");
 })
 
-app.get('/login', async (req, res) => {
+app.get('/loginTest', async (req, res) => {
+    let connection
+
+    try {
+        connection = await getConnection();
+        const [rows] = await connection.query('select * from User')
+        console.log(rows)
+        res.status(200).json(rows)
+    } catch (error) {
+        console.log("Error occured in /login", error)
+        res.status(400).json({ text: "Bad Request" })
+    } finally {
+        if (connection) await connection.end()
+        //close connection at the end
+    }
+})
+
+
+
+app.post('/login', async (req, res) => {
     let connection
 
     try {
         connection = await getConnection();
         const { username, password } = req.body
-        const [rows] = await connection.query('select * from user where username=' + username)
+        const [rows] = await connection.query('select * from User where username=?', [username])
 
-        if (username == rows.username && password == rows.password) {
-            res.status(200).json({ text: "Success" })
+        // no user with that username
+        if (rows.length === 0) {
+            return res.status(401).json({ text: 'Unauthorized' });
+        }
+
+        const user = rows[0];
+
+        // Plain-text compare (ok for a demo; not for production)
+        if (password === user.password) {
+            return res.status(200).json({ text: 'Success' });
         } else {
-            res.status(401).json({ text: "Unauthorized" })
+            return res.status(401).json({ text: 'Unauthorized' });
         }
     } catch (error) {
         console.log("Error occured in /login", error)

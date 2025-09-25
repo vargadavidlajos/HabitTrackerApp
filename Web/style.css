@@ -1,0 +1,135 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;                 
+  display: flex;                 
+  justify-content: center;       
+  align-items: center;           
+  background: #f7f7f7;
+}
+
+/*mainpage rész*/
+
+.habit-list {
+  display: flex;
+  flex-wrap: wrap;          
+  gap: 15px;                
+  padding: 20px;
+  justify-content: center;
+  background-color: white;
+}
+
+.habit {
+  flex: 1 1 250px;          
+  max-width: 300px;         
+  background: #66b3ff;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.anti-habit {
+  background: #cc4444;
+}
+
+.habit input {
+  width: 20px;
+  height: 20px;
+}
+
+/*register rész*/
+
+.register-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;                     
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  background: #66b3ff;           
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  color: white;
+}
+
+.register-container h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.register-container label {
+  font-weight: bold;
+  margin-top: 10px;       
+  margin-bottom: 5px;     
+}
+
+.register-container input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: white;
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 15px;    
+}
+
+.register-container button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #0077cc;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.register-container button:hover {
+  background: #005fa3;
+}
+
+.register-container p {
+  text-align: center;
+  margin-top: 10px;
+  color: white;
+}
+
+.delete-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background: white;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.delete-btn:hover {
+  background: #e6e6e6;
+}
+
+/* Vissza gomb a containeren kívül */
+.back-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: #0077cc;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-btn:hover {
+  background: #005fa3;
+}

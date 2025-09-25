@@ -25,7 +25,7 @@ header h1 {
   text-decoration: none;
   font-weight: bold;
 }
-
+/*mainpage rész*/
 .habit-list {
   padding: 20px;
 }
@@ -102,4 +102,5 @@ header h1 {
 .register-container p {
   text-align: center;
   margin-top: 15px;
+
 }

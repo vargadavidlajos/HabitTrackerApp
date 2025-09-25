@@ -2,43 +2,38 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  height: 100vh;                 
+  display: flex;                 
+  justify-content: center;       
+  align-items: center;           
   background: #f7f7f7;
 }
 
-header {
-  background: #0077cc;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 20px;
-}
-
-.add-btn {
-  color: white;
-  font-size: 24px;
-  text-decoration: none;
-  font-weight: bold;
-}
 /*mainpage rész*/
+
 .habit-list {
+  display: flex;
+  flex-wrap: wrap;          
+  gap: 15px;                
   padding: 20px;
+  justify-content: center;  
 }
 
 .habit {
+  flex: 1 1 250px;          
+  max-width: 300px;         
   background: #66b3ff;
   color: white;
   padding: 15px;
-  margin-bottom: 10px;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.anti-habit {
+  background: #cc4444;
 }
 
 .habit input {
@@ -46,61 +41,61 @@ header h1 {
   height: 20px;
 }
 
-.anti-habit {
-  background: #cc4444;
-}
-
-
 /*register rész*/
 
-
 .register-container {
+  display: flex;
+  flex-direction: column;        
+  gap: 15px;                     
+  width: 100%;
   max-width: 400px;
-  margin: 60px auto;
   padding: 30px;
-  background: #66b3ff;
+  background: #66b3ff;           
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  color: white;
 }
 
 .register-container h1 {
   text-align: center;
-  margin-bottom: 20px;
-  color: white;
+  margin-bottom: 10px;
+  font-size: 24px;
 }
 
 .register-container label {
-  display: block;
-  margin: 10px 0 5px;
   font-weight: bold;
-  color: white;
+  margin-top: 10px;       
+  margin-bottom: 5px;     
 }
 
 .register-container input {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  background: white;
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 15px;    
 }
 
 .register-container button {
-  width: 100%;
   padding: 12px;
   border: none;
   border-radius: 8px;
-  background: #0517b9;
+  background: #0077cc;
   color: white;
   font-size: 16px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .register-container button:hover {
-  background: black;
+  background: #005fa3;
 }
 
 .register-container p {
   text-align: center;
-  margin-top: 15px;
-
+  margin-top: 10px;
+  color: white;
 }

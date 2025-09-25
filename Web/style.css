@@ -16,7 +16,8 @@ body {
   flex-wrap: wrap;          
   gap: 15px;                
   padding: 20px;
-  justify-content: center;  
+  justify-content: center;
+  background-color: white;
 }
 
 .habit {
@@ -45,7 +46,7 @@ body {
 
 .register-container {
   display: flex;
-  flex-direction: column;        
+  flex-direction: column;
   gap: 15px;                     
   width: 100%;
   max-width: 400px;

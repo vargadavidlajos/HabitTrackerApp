@@ -43,6 +43,10 @@ Szokás törlése
   <img src="HabitsApp-Register-Concept.png" style="width: 250px;">
   <img src="HabitsApp-Concept2.png" style="width: 250px;">
 </div>
+<div style="display: flex; gap: 10px;">
+  <img src="HabitsApp-NewHabit-Concept.png" style="width: 250px;">
+  <img src="HabitsApp-Delete-Concept.png" style="width: 250px;">
+</div>
 
 ## 7. Forgatókönyv
 **Új szokás felvétele és követése**

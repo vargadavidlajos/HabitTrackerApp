@@ -100,3 +100,36 @@ body {
   margin-top: 10px;
   color: white;
 }
+
+.delete-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background: white;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.delete-btn:hover {
+  background: #e6e6e6;
+}
+
+/* Vissza gomb a containeren kívül */
+.back-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: #0077cc;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-btn:hover {
+  background: #005fa3;
+}

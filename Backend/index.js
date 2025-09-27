@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
     res.send("Hello from Habit Tracker");
 })
 
-app.get('/loginTest', async (req, res) => {
+app.get('/Test', async (req, res) => {
     let connection
 
     try {
@@ -67,6 +67,23 @@ app.post('/login', async (req, res) => {
     } catch (error) {
         console.log("Error occured in /login", error)
         res.status(400).json({ text: "Bad Request" })
+    } finally {
+        if (connection) await connection.end()
+        //close connection at the end
+    }
+})
+
+app.post('/createUser', async (req, res) => {
+    let connection
+
+    try {
+        connection = await getConnection();
+        const { username, password } = req.body
+        await connection.query('insert into User (username, password) values (?,?)', [username, password])
+        res.status(201).json({ text: "Success" })
+    } catch (error) {
+        console.log("Error occured in /createUser", error)
+        res.status(500).json({ text: "Server error" })
     } finally {
         if (connection) await connection.end()
         //close connection at the end

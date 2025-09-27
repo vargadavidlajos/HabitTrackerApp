@@ -182,8 +182,8 @@ body {
 }
 
 .register-container input {
-  width: 100%;
-  padding: 10px;
+  width: 400px;
+  padding: 10px 0px;
   border-radius: 8px;
   border: 1px solid #ccc;
   background: white;
@@ -317,3 +317,4 @@ body.viewhabit {
 .calendar .achieved {
   background-color: #00EE00;
 }
+

@@ -133,3 +133,146 @@ body {
 .back-btn:hover {
   background: #005fa3;
 }
+
+/* Általános témák */
+/* >-------------------------------------*/
+
+/* class: title-header */
+.title-header {
+  flex: 0 0 auto;
+  background-color: rgb(23, 106, 239);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 8px;
+}
+.title-header > p {
+  color:white;
+}
+
+/* class: main-window */
+.main-window {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0.75cm;
+}
+
+/* class: blue-board */
+.blue-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5cm;
+  padding: 0.5cm;
+  background-color: rgb(91, 176, 255);
+  border-radius: 0.35cm;
+}
+
+/* class: board-title */
+.board-title {
+  align-self: flex-start;
+
+  display: flex;
+  flex-direction: column;
+}
+.board-title span {
+  color: white;
+}
+
+/* class: blue-button */
+.blue-button {
+  background-color: rgb(91, 176, 255);
+  border-radius: 13px;
+  border-color: rgb(23, 106, 239);
+  border-width: 4px;
+
+  color: white;
+  font-weight: bold;
+}
+.blue-button:hover {
+  background-color: rgb(67, 153, 233);
+}
+
+/* class: footer */
+.footer {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+}
+.footer p {
+  margin: 0;
+}
+
+/* viewhabit */
+body.viewhabit {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: normal;
+  background: #f7f7f7;
+}
+
+.viewhabit-back {
+  align-self: flex-end;
+  margin: 10px 0px;
+  padding: 5px 30px;
+}
+
+.board-title > .info {
+  font-size: 15px;
+}
+.board-title > .habit-name {
+  font-size: 30px;
+}
+
+.habit-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.habit-details > .streak > span {
+  color: white;
+  font-size: 20px;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.calendar > table {
+  border-collapse:separate;
+  border-spacing: 5px;
+
+  padding: 2px;
+  margin: 10px 10px 45px 10px;
+  border-radius: 10px;
+
+  background-color: rgb(23, 106, 239);
+}
+.calendar td {
+  width: 25px;
+  height: 25px;
+
+  background-color: white;
+  border-radius: 5px;
+}
+.calendar span {
+  color: white;
+}
+
+.calendar .achieved {
+  background-color: #00EE00;
+}

@@ -318,3 +318,13 @@ body.viewhabit {
   background-color: #00EE00;
 }
 
+/*newhabit rész*/
+.selector{
+  padding:5px;
+  width: 160px;
+  height: 40px;
+  border-radius: 10px;
+  border-color: rgb(23, 106, 239);
+  border-width: 4px;
+  appearance: none;
+}

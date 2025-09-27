@@ -1,15 +1,37 @@
+// newhabit.js
+// --------------------------------------------
 document.getElementById("newhabit-form").addEventListener("submit", function(e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const habitName = document.getElementById("habit-name").value.trim();
-  const habitType = document.getElementById("habit-type").value;
+    const habitName = document.getElementById("habit-name").value.trim();
+    const habitType = document.getElementById("habit-type").value;
 
-  if (!habitName) {
-    alert("Adj meg egy szokás nevet!");
-    return;
-  }
+    if (!habitName) {
+        alert("Adj meg egy szokás nevet!");
+        return;
+    }
 
-  alert(`Új szokás hozzáadva:\nNév: ${habitName}\nTípus: ${habitType}`);
-  
-  // később itt lehet majd az adatbázisba menteni
+    createHabit(habitName, habitType)
+
+    alert(`Új szokás hozzáadva:\nNév: ${habitName}\nTípus: ${habitType}`);
 });
+
+async function createHabit(habitName, habitType) {
+    const response = await fetch('http://localhost:9670/createUser', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userid: userid, habitName: habitName, habitType: habitType })
+    });
+    const result = await response.json();
+    console.log(result);
+
+    if (result.text == "Success") {
+        return true
+    } else {
+        return false
+    }
+}
+
+

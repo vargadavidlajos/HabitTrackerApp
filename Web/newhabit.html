@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HabitTracker - New habit</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HabitTracker - New habit</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="register-container">
-    <h1>Add new habit</h1>
-    <form id="newhabit-form">
-      <label for="habit-name">Habit name</label>
-      <input type="text" id="habit-name" name="habit-name" required>
+    <div class="register-container">
+        <h1>Add new habit</h1>
+        <form id="newhabit-form">
+            <label for="habit-name">Habit name</label>
+            <input type="text" id="habit-name" name="habit-name" required>
 
-      <label for="habit-type">Type</label>
-      <select id="habit-type" name="habit-type" required>
-        <option value="habit">Habit (positive)</option>
-        <option value="anti-habit">Anti-habit (negative)</option>
-      </select>
+            <label for="habit-type">Type</label>
+            <select id="habit-type" name="habit-type" required>
+                <option value="habit">Habit (positive)</option>
+                <option value="anti-habit">Anti-habit (negative)</option>
+            </select>
 
-      <button type="submit">Add</button>
-    </form>
-    <p><a href="mainpage.html">Return to main page</a></p>
-  </div>
+            <button type="submit">Add</button>
+        </form>
+        <p><a href="mainpage.html">Return to main page</a></p>
+    </div>
 
-  <script src="newhabit.js"></script>
+    <script src="newhabit.js"></script>
 </body>
+
 </html>

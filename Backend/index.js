@@ -60,7 +60,7 @@ app.post('/login', async (req, res) => {
 
         // Plain-text compare (ok for a demo; not for production)
         if (password === user.password) {
-            return res.status(200).json({ text: 'Success' });
+            return res.status(200).json({ text: 'Success', userid: user.id });
         } else {
             return res.status(401).json({ text: 'Unauthorized' });
         }

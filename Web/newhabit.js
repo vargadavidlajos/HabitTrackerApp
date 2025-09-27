@@ -17,13 +17,16 @@ document.getElementById("newhabit-form").addEventListener("submit", function(e) 
 });
 
 async function createHabit(habitName, habitType) {
-    const response = await fetch('http://localhost:9670/createUser', {
+    const user = sessionStorage.getItem("userid")
+    console.log("f", user)
+    const response = await fetch('http://localhost:9670/createHabit', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ userid: userid, habitName: habitName, habitType: habitType })
+        body: JSON.stringify({ userid: user, habitName: habitName, habitType: habitType })
     });
+
     const result = await response.json();
     console.log(result);
 

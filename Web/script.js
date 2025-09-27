@@ -1,3 +1,23 @@
+//index page
+async function login() {
+    const username = document.getElementById("username").value
+    const password = document.getElementById("password").value
+    const response = await fetch('http://localhost:9670/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username: username, password: password })
+    });
+    const result = await response.json();
+    console.log(result);
+
+    if (result.text == "Success") {
+        window.location.href = "mainpage.html"
+    } else {
+        alert("Login failed!")
+    }
+}
 
 
 // register.js
@@ -60,43 +80,43 @@ async function register(username, password) {
 // newhabit.js
 // --------------------------------------------
 document.getElementById("newhabit-form").addEventListener("submit", function(e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const habitName = document.getElementById("habit-name").value.trim();
-  const habitType = document.getElementById("habit-type").value;
+    const habitName = document.getElementById("habit-name").value.trim();
+    const habitType = document.getElementById("habit-type").value;
 
-  if (!habitName) {
-    alert("Adj meg egy szokás nevet!");
-    return;
-  }
+    if (!habitName) {
+        alert("Adj meg egy szokás nevet!");
+        return;
+    }
 
-  alert(`Új szokás hozzáadva:\nNév: ${habitName}\nTípus: ${habitType}`);
-  
-  // később itt lehet majd az adatbázisba menteni
+    alert(`Új szokás hozzáadva:\nNév: ${habitName}\nTípus: ${habitType}`);
+
+    // később itt lehet majd az adatbázisba menteni
 });
 
 
 // teszt.js -> mainpage része
 // --------------------------------------------
 fetch("teszt.json")
-  .then(response => response.json())
-  .then(data => {
-    const habitList = document.getElementById("habit-list");
+    .then(response => response.json())
+    .then(data => {
+        const habitList = document.getElementById("habit-list");
 
-    Object.entries(data.habits).forEach(([habitName]) => {
-      const habitDiv = document.createElement("div");
-      habitDiv.classList.add("habit");
+        Object.entries(data.habits).forEach(([habitName]) => {
+            const habitDiv = document.createElement("div");
+            habitDiv.classList.add("habit");
 
-      const nameSpan = document.createElement("span");
-      nameSpan.textContent = habitName;
+            const nameSpan = document.createElement("span");
+            nameSpan.textContent = habitName;
 
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
 
-      habitDiv.appendChild(nameSpan);
-      habitDiv.appendChild(checkbox);
+            habitDiv.appendChild(nameSpan);
+            habitDiv.appendChild(checkbox);
 
-      habitList.appendChild(habitDiv);
-    });
-  })
-  .catch(error => console.error("Hiba a JSON betöltésénél:", error));
+            habitList.appendChild(habitDiv);
+        });
+    })
+    .catch(error => console.error("Hiba a JSON betöltésénél:", error));

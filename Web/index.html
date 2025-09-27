@@ -4,42 +4,6 @@
 <head>
     <title>Habit Tracker</title>
     <script>
-        async function getData(endpoint) {
-            try {
-                const response = await fetch('http://127.0.0.1:9670' + endpoint);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const data = await response.json();
-                console.log(data);
-
-                return data;
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                return null;
-            }
-        }
-
-
-        async function login() {
-            const username = document.getElementById("username").value
-            const password = document.getElementById("password").value
-            const response = await fetch('http://localhost:9670/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({username: username, password: password})
-            });
-            const result = await response.json();
-            console.log(result);
-
-            if (result.text == "Success") {
-                window.location.href = "mainpage.html"
-            } else {
-                alert("Login failed!")
-            }
-        }
     </script>
 </head>
 
@@ -51,6 +15,8 @@
     <input type="text" id="password" name="password"><br><br>
     <button onclick="login()">Login</button>
     <button onclick="location.href='register.html'">Register</button>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -26,6 +26,16 @@ const timestamps = [
 
 const daysAgoList = calculateDaysAgo(timestamps);
 
+const table = document.getElementById("calendar-table");
+const allCells = Array.from(table.querySelectorAll("td"));
+
+allCells.forEach((cell, index) => {
+  console.log("current index: ", index);
+  if (daysAgoList.includes(index)) {
+    cell.classList.add("achieved");
+  }
+});
+
 let streakCount = 0;
 for (let i = 1; ; i++) {
   if (daysAgoList.includes(i)) {

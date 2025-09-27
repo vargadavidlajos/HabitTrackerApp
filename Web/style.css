@@ -2,10 +2,11 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  height: 100vh;                 
-  display: flex;                 
-  justify-content: center;       
-  align-items: center;           
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: normal;
   background: #f7f7f7;
 }
 
@@ -275,4 +276,5 @@ body.viewhabit {
 
 .calendar .achieved {
   background-color: #00EE00;
+
 }

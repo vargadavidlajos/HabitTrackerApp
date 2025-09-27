@@ -134,18 +134,8 @@ body {
   background: #005fa3;
 }
 
-/* viewhabit */
-body.viewhabit {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: normal;
-  background: #f7f7f7;
-}
+/* Általános témák */
+/* >-------------------------------------*/
 
 /* class: title-header */
 .title-header {
@@ -218,12 +208,23 @@ body.viewhabit {
   margin: 0;
 }
 
-/* ViewHabit */
+/* viewhabit */
+body.viewhabit {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: normal;
+  background: #f7f7f7;
+}
+
 .viewhabit-back {
   align-self: flex-end;
   margin: 10px 0px;
   padding: 5px 30px;
-  cursor: pointer;
 }
 
 .board-title > .info {
@@ -244,22 +245,34 @@ body.viewhabit {
   color: white;
   font-size: 20px;
 }
-.habit-details td {
-  width: 30px;
-  height: 20px;
-  background-color: white;
-  border-radius: 5px;
-}
 
-.habit-details > table {
-  padding: 5px 5px;
+.calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.calendar > table {
+  border-collapse:separate;
+  border-spacing: 5px;
+
+  padding: 2px;
+  margin: 10px 10px 45px 10px;
   border-radius: 10px;
-  border-width: 4px;
-  border-color: white;
 
   background-color: rgb(23, 106, 239);
 }
+.calendar td {
+  width: 25px;
+  height: 25px;
 
-.calendar-days > td {
-  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+}
+.calendar span {
+  color: white;
+}
+
+.calendar .achieved {
+  background-color: #00EE00;
 }

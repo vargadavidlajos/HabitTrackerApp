@@ -10,10 +10,25 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        const habitNames = getHabitNamesWithTypes(habits);
-        //const habitNamesWithTypes = [["habit1", "1"], ["habit2", "1"], ["anti-habit1", "0"]];
+        habitList.innerHTML = ""
 
-        habitNames.forEach(habit => {
+        for (let i = 0; i < habits.length - 1; i++) {
+            console.log("tt", habits[0][i])
+            if (habits[0][i]["type"] == 0) {
+                habitList.innerHTML += `
+                    <div value="${habits[0][i]["habit_id"]}" class="habit anti-habit">
+                        <span>${habits[0][i]["habit_name"]}</span>
+                    </div>`
+            } else {
+                habitList.innerHTML += `
+                    <div value="${habits[0][i]["habit_id"]}" class="habit">
+                        <span>${habits[0][i]["habit_name"]}</span>
+                    </div>`
+            }
+        }
+
+        /*habits.forEach(habit => {
+
 
             if (habit[1] == "1") {
                 habitList.innerHTML += `
@@ -29,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     </div>
                 `;
             }
-        });
+        });*/
     } catch (error) {
         console.error("Error loading habits:", error);
         habitList.textContent = "Error loading habits.";

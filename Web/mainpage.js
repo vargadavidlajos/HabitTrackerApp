@@ -61,9 +61,23 @@ document.addEventListener("DOMContentLoaded", async () => {
         button.addEventListener('click', (event) => {
             const buttonContainer = event.target.parentElement;
             const habitId = buttonContainer.getAttribute('value');
+            const habitType = event.target.classList.includes('blue-button') ? 1 : 0;
+            const habitName = event.target.firstElementChild.textContent;
 
             sessionStorage.setItem('habit_id', habitId);
+            sessionStorage.setItem('habit_type', habitType);
+            sessionStorage.setItem('habit_name', habitName);
             window.open("viewhabit.html");
+        });
+    });
+
+    const completionButtons = document.querySelectorAll('.completion-button');
+    completionButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            // change color of button
+            event.target.classList.add('achieved');
+            
+            // rest of completion saving logic
         });
     });
 });

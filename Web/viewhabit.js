@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const habits = await getHabitData();
-
     
-
-    const timestamps = formatTimestamps(habits);
+    const timestamps = formatTimestamps(habits[0]);
 
     /*const timestamps = [
         "2025-09-25-12-00",
@@ -16,6 +14,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const table = document.getElementById("calendar-table");
     const allCells = Array.from(table.querySelectorAll("td"));
+    const habitName = sessionStorage.getItem("habit_name");
+    const habitType = sessionStorage.getItem("habit_type");
+
+    const habitNameBanner = document.getElementById('habit_name');
+    habitNameBanner.textContent = habitName;
 
     allCells.forEach((cell, index) => {
         console.log("current index: ", index);
@@ -80,35 +83,32 @@ function calculateDaysAgo(dateStrings) {
 }
 
 function formatTimestamps(timestamps) {
-    return timestamps
-        .filter(Boolean) // skip null/undefined
-        .map(timestamp => {
-            const date = new Date(timestamp);
+    
+    const completionTimes = [];
+    
+    timestamps.forEach((timestamp) => {
+        const completionTime = cleanAndFormatDate(timestamp['habit_date']);
+        completionTimes.push(completionTime);
+    });
 
-            const yyyy = date.getFullYear();
-            const mm = String(date.getMonth() + 1).padStart(2, '0');
-            const dd = String(date.getDate()).padStart(2, '0');
-            const HH = String(date.getHours()).padStart(2, '0');
-            const MM = String(date.getMinutes()).padStart(2, '0');
-
-            return `${yyyy}-${mm}-${dd}-${HH}-${MM}`;
-        });
+    return completionTimes;
 }
 
-function getHabitTimestampsByName(habitData, targetHabitName) {
-    return habitData
-        .filter(habit => habit.habit_name === targetHabitName && habit.habit_date)
-        .map(habit => {
-            const date = new Date(habit.habit_date);
+function cleanAndFormatDate(rawString) {
+    const match = rawString.match(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.000Z/);
 
-            const yyyy = date.getFullYear();
-            const mm = String(date.getMonth() + 1).padStart(2, '0');
-            const dd = String(date.getDate()).padStart(2, '0');
-            const HH = String(date.getHours()).padStart(2, '0');
-            const MM = String(date.getMinutes()).padStart(2, '0');
+    if (!match) return null;
 
-            return `${yyyy}-${mm}-${dd}-${HH}-${MM}`;
-        });
+    const isoDate = match[0];
+    const date = new Date(isoDate);
+
+    const yyyy = date.getFullYear();
+    const mm   = String(date.getMonth() + 1).padStart(2, '0');
+    const dd   = String(date.getDate()).padStart(2, '0');
+    const HH   = String(date.getHours()).padStart(2, '0');
+    const MM   = String(date.getMinutes()).padStart(2, '0');
+
+    return `${yyyy}-${mm}-${dd}-${HH}-${MM}`;
 }
 
 async function getHabitData() {

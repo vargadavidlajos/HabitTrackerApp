@@ -127,36 +127,20 @@ app.post('/getHabits', async (req, res) => {
     }
 })
 
-app.post('/deleteUserData', async (req, res) => {
+app.post('/getHabitData', async (req, res) => {
     let connection
 
     try {
         connection = await getConnection();
         console.log(req.body)
-        const { userid } = req.body
-        await connection.query('Delete from User where id = (?)', [userid])
+        const { habit_id } = req.body
+        const data = await connection.query('SELECT habit_date from HabitDates where habit_id = (?)', [habit_id])
 
-        res.status(200).json({ text: "Success" })
+        console.log(data)
+
+        res.status(200).json({ text: "Success", data: data })
     } catch (error) {
-        console.log("Error occured in /deleteUserData", error)
-        res.status(500).json({ text: "Server error" })
-    } finally {
-        if (connection) await connection.end()
-        //close connection at the end
-    }
-})
-
-app.post('/deleteUserHabitData', async (req, res) => {
-    let connection
-
-    try {
-        connection = await getConnection();
-        console.log(req.body)
-        const { userid } = req.body
-        await connection.query('Delete from Habit h where h.user_id = (?)', [userid])
-        res.status(200).json({ text: "Success" })
-    } catch (error) {
-        console.log("Error occured in /deleteUserHabitData", error)
+        console.log("Error occured in /getHabitData", error)
         res.status(500).json({ text: "Server error" })
     } finally {
         if (connection) await connection.end()

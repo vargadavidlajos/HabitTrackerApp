@@ -53,7 +53,7 @@ DROP TABLE IF EXISTS `HabitDates`;
 CREATE TABLE `HabitDates` (
   `id` int NOT NULL AUTO_INCREMENT,
   `habit_id` int NOT NULL,
-  `habit_date` datetime NOT NULL,
+  `habit_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `fk_habit` (`habit_id`),
   CONSTRAINT `fk_habit` FOREIGN KEY (`habit_id`) REFERENCES `Habit` (`id`) ON DELETE CASCADE ON UPDATE CASCADE

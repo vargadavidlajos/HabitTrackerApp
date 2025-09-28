@@ -3,33 +3,57 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
         const habits = await getHabits(); // wait for backend response
+        console.log("h,", habits)
 
         if (!habits) {
             habitList.textContent = "No habits found.";
             return;
         }
 
-        // habits should be an array of { habit_id, habit_name }
-        habits.forEach(habit => {
-            const habitDiv = document.createElement("div");
-            habitDiv.classList.add("habit");
+        const habitNames = getHabitNamesWithTypes(habits);
+        //const habitNamesWithTypes = [["habit1", "1"], ["habit2", "1"], ["anti-habit1", "0"]];
 
-            const nameSpan = document.createElement("span");
-            nameSpan.textContent = habit.habit_name;
+        habitNames.forEach(habit => {
 
-            const checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-
-            habitDiv.appendChild(nameSpan);
-            habitDiv.appendChild(checkbox);
-
-            habitList.appendChild(habitDiv);
+            if (habit[1] == "1") {
+                habitList.innerHTML += `
+                    <div class="habit">
+                        <span>${habit[0]}</span>
+                    </div>
+                `;
+            }
+            else {
+                habitList.innerHTML += `
+                    <div class="habit anti-habit">
+                        <span>${habit[0]}</span>
+                    </div>
+                `;
+            }
         });
     } catch (error) {
         console.error("Error loading habits:", error);
         habitList.textContent = "Error loading habits.";
     }
 });
+
+function getHabitNamesWithTypes(habits) {
+    const uniqueMap = new Map();
+
+    for (const habit of habits) {
+        const name = habit.habit_name;
+        const type = String(habit.isGoodHabit);
+
+        if (!uniqueMap.has(name)) {
+            uniqueMap.set(name, type);
+        }
+    }
+
+    const result = Array.from(uniqueMap.entries()).sort((a, b) =>
+        a[0].localeCompare(b[0])
+    );
+
+    return result;
+}
 
 async function getHabits() {
     const user = sessionStorage.getItem("userid")
@@ -44,8 +68,8 @@ async function getHabits() {
     const result = await response.json();
     console.log(result);
 
-    if (result.text === "Success" && Array.isArray(result.habits)) {
-        return result.habits
+    if (result.text == "Success") {
+        return result.data
     } else {
         return null
     }

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        const habitNames = getHabitNames(habits);
+        const habitNames = getHabitNamesWithTypes(habits);
         //const habitNamesWithTypes = [["habit1", "1"], ["habit2", "1"], ["anti-habit1", "0"]];
         
         habitNamesWithTypes.forEach(habit => {

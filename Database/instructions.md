@@ -17,3 +17,4 @@ mysqldump -u root -p mydb > backup.sql
 5. reload the structure
 mysql -u root -p mydb < backup.sql
 
+sudo docker exec -i db2 mysql -u root -ppmamysql HabitTracker < backup.sql

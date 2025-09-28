@@ -127,6 +127,43 @@ app.post('/getHabits', async (req, res) => {
     }
 })
 
+app.post('/deleteUserData', async (req, res) => {
+    let connection
+
+    try {
+        connection = await getConnection();
+        console.log(req.body)
+        const { userid } = req.body
+        await connection.query('Delete from User where id = (?)', [userid])
+
+        res.status(200).json({ text: "Success" })
+    } catch (error) {
+        console.log("Error occured in /deleteUserData", error)
+        res.status(500).json({ text: "Server error" })
+    } finally {
+        if (connection) await connection.end()
+        //close connection at the end
+    }
+})
+
+app.post('/deleteUserHabitData', async (req, res) => {
+    let connection
+
+    try {
+        connection = await getConnection();
+        console.log(req.body)
+        const { userid } = req.body
+        await connection.query('Delete from Habit h where h.user_id = (?)', [userid])
+        res.status(200).json({ text: "Success" })
+    } catch (error) {
+        console.log("Error occured in /deleteUserHabitData", error)
+        res.status(500).json({ text: "Server error" })
+    } finally {
+        if (connection) await connection.end()
+        //close connection at the end
+    }
+})
+
 app.listen(PORT, () => {
     console.log(`Running Habit Tracker backend on port: ${PORT}`);
 })

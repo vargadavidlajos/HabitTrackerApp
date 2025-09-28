@@ -76,11 +76,34 @@ document.addEventListener("DOMContentLoaded", async () => {
         button.addEventListener('click', (event) => {
             // change color of button
             event.target.classList.add('achieved');
-            
+            const buttonContainer = event.target.parentElement;
+            const habit_id = buttonContainer.getAttribute('value');
             // rest of completion saving logic
+            addDate(habit_id)
         });
     });
 });
+
+
+async function addDate(habit_id) {
+    const response = await fetch('http://localhost:9670/addHabitDate', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ habit_id: habit_id })
+    });
+
+    const result = await response.json();
+    console.log(result);
+
+    if (result.text == "Success") {
+        alert("Sikeres megjelölted a szokást mára!")
+    } else {
+        alert("Hiba történt a szokás megjelölésekor")
+    }
+
+}
 
 function getHabitNamesWithTypes(habits) {
     const uniqueMap = new Map();

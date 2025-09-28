@@ -186,6 +186,28 @@ app.post('/deleteUserHabitData', async (req, res) => {
     }
 })
 
+app.post('/addHabitDate', async (req, res) => {
+    let connection
+
+    try {
+        connection = await getConnection();
+        console.log(req.body)
+        const { habit_id } = req.body
+        const data = await connection.query('insert into HabitDates (habit_id) values (?)', [habit_id])
+
+        console.log(data)
+
+        res.status(201).json({ text: "Success" })
+    } catch (error) {
+        console.log("Error occured in /addHabitDate", error)
+        res.status(500).json({ text: "Server error" })
+    } finally {
+        if (connection) await connection.end()
+        //close connection at the end
+    }
+})
+
+
 
 app.listen(PORT, () => {
     console.log(`Running Habit Tracker backend on port: ${PORT}`);

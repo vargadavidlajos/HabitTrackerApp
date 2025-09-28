@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const habitList = document.getElementById("habit-list");
 
     try {
-        const habits = await getHabits(); // wait for backend response
+        /*const habits = await getHabits(); // wait for backend response
         console.log("h,", habits)
 
         if (!habits) {
@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        const habitNames = getHabitNamesWithTypes(habits);
-        //const habitNamesWithTypes = [["habit1", "1"], ["habit2", "1"], ["anti-habit1", "0"]];
+        const habitNames = getHabitNamesWithTypes(habits);*/
+        const habitNamesWithTypes = [["habit1", "1"], ["habit2", "1"], ["anti-habit1", "0"]];
 
-        habitNames.forEach(habit => {
+        habitNamesWithTypes.forEach(habit => {
 
             if (habit[1] == "1") {
                 habitList.innerHTML += `

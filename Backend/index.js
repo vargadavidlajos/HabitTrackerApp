@@ -127,6 +127,27 @@ app.post('/getHabits', async (req, res) => {
     }
 })
 
+app.post('/getHabitData', async (req, res) => {
+    let connection
+
+    try {
+        connection = await getConnection();
+        console.log(req.body)
+        const { habit_id } = req.body
+        const data = await connection.query('SELECT habit_date from HabitDates where habit_id = (?)', [habit_id])
+
+        console.log(data)
+
+        res.status(200).json({ text: "Success", data: data })
+    } catch (error) {
+        console.log("Error occured in /getHabitData", error)
+        res.status(500).json({ text: "Server error" })
+    } finally {
+        if (connection) await connection.end()
+        //close connection at the end
+    }
+})
+
 app.listen(PORT, () => {
     console.log(`Running Habit Tracker backend on port: ${PORT}`);
 })

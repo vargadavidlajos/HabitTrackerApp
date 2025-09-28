@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const habits = await getHabits();
+    const habits = await getHabitData();
 
-    const params = new URLSearchParams(window.location.search);
-    const habitId = params.get("habit_id");
-    const habitType = params.get("habit_type");
+    
 
     const timestamps = formatTimestamps(habits);
 
@@ -113,21 +111,21 @@ function getHabitTimestampsByName(habitData, targetHabitName) {
         });
 }
 
-async function getHabits() {
-    const user = sessionStorage.getItem("userid")
-    const response = await fetch('http://localhost:9670/getHabits', {
+async function getHabitData() {
+    const habit_id = sessionStorage.getItem("habit_id")
+    const response = await fetch('http://localhost:9670/getHabitData', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ userid: user })
+        body: JSON.stringify({ habit_id: habit_id })
     });
 
     const result = await response.json();
     console.log(result);
 
-    if (result.text === "Success" && Array.isArray(result.habits)) {
-        return result.habits
+    if (result.text == "Success") {
+        return result.data
     } else {
         return null
     }

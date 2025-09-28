@@ -16,13 +16,19 @@ document.addEventListener("DOMContentLoaded", async () => {
             console.log("tt", habits[0][i])
             if (habits[0][i]["type"] == 0) {
                 habitList.innerHTML += `
-                    <div value="${habits[0][i]["habit_id"]}" class="habit anti-habit">
-                        <span>${habits[0][i]["habit_name"]}</span>
+                    <div value=${habits[0][i]["habit_id"]} class="button-container">
+                        <button class="red-button habit">
+                            <span>${habits[0][i]["habit_name"]}</span>
+                        </button>
+                        <button class="completion-button"></button>
                     </div>`
             } else {
                 habitList.innerHTML += `
-                    <div value="${habits[0][i]["habit_id"]}" class="habit">
-                        <span>${habits[0][i]["habit_name"]}</span>
+                    <div value=${habits[0][i]["habit_id"]} class="button-container">
+                        <button class="blue-button habit">
+                            <span>${habits[0][i]["habit_name"]}</span>
+                        </button>
+                        <button class="completion-button"></button>
                     </div>`
             }
         }
@@ -49,6 +55,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error("Error loading habits:", error);
         habitList.textContent = "Error loading habits.";
     }
+
+    const habitButtons = document.querySelectorAll('.habit');
+    habitButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const buttonContainer = event.target.parentElement;
+            const habitId = buttonContainer.getAttribute('value');
+
+            sessionStorage.setItem('habit_id', habitId);
+            window.open("viewhabit.html");
+        });
+    });
 });
 
 function getHabitNamesWithTypes(habits) {

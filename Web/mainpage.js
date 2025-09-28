@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
         const habits = await getHabits(); // wait for backend response
+        console.log("h,", habits)
 
         if (!habits) {
             habitList.textContent = "No habits found.";
@@ -11,8 +12,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const habitNames = getHabitNamesWithTypes(habits);
         //const habitNamesWithTypes = [["habit1", "1"], ["habit2", "1"], ["anti-habit1", "0"]];
-        
-        habitNamesWithTypes.forEach(habit => {
+
+        habitNames.forEach(habit => {
 
             if (habit[1] == "1") {
                 habitList.innerHTML += `
@@ -67,8 +68,8 @@ async function getHabits() {
     const result = await response.json();
     console.log(result);
 
-    if (result.text === "Success" && Array.isArray(result.habits)) {
-        return result.habits
+    if (result.text == "Success") {
+        return result
     } else {
         return null
     }

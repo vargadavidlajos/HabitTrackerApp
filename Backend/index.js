@@ -114,6 +114,9 @@ app.post('/getHabits', async (req, res) => {
         console.log(req.body)
         const { userid } = req.body
         const data = await connection.query('SELECT h.id AS habit_id, h.name AS habit_name FROM Habit h WHERE h.user_id = (?)', [userid])
+
+        console.log(data)
+
         res.status(200).json({ text: "Success", data: data })
     } catch (error) {
         console.log("Error occured in /getHabits", error)

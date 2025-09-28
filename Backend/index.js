@@ -41,8 +41,6 @@ app.get('/Test', async (req, res) => {
     }
 })
 
-
-
 app.post('/login', async (req, res) => {
     let connection
 
@@ -60,7 +58,7 @@ app.post('/login', async (req, res) => {
 
         // Plain-text compare (ok for a demo; not for production)
         if (password === user.password) {
-            return res.status(200).json({ text: 'Success' });
+            return res.status(200).json({ text: 'Success', userid: user.id });
         } else {
             return res.status(401).json({ text: 'Unauthorized' });
         }
@@ -90,6 +88,84 @@ app.post('/createUser', async (req, res) => {
     }
 })
 
+app.post('/createHabit', async (req, res) => {
+    let connection
+
+    try {
+        connection = await getConnection();
+        console.log(req.body)
+        const { userid, habitName, habitType } = req.body
+        await connection.query('insert into Habit (id, user_id, name, isGoodHabit) values (NULL, ?,?,?)', [userid, habitName, habitType])
+        res.status(201).json({ text: "Success" })
+    } catch (error) {
+        console.log("Error occured in /createHabit", error)
+        res.status(500).json({ text: "Server error" })
+    } finally {
+        if (connection) await connection.end()
+        //close connection at the end
+    }
+})
+
+app.post('/getHabits', async (req, res) => {
+    let connection
+
+    try {
+        connection = await getConnection();
+        console.log(req.body)
+        const { userid } = req.body
+        const data = await connection.query('SELECT h.id AS habit_id, h.name AS habit_name FROM Habit h WHERE h.user_id = (?)', [userid])
+
+        console.log(data)
+
+        res.status(200).json({ text: "Success", data: data })
+    } catch (error) {
+        console.log("Error occured in /getHabits", error)
+        res.status(500).json({ text: "Server error" })
+    } finally {
+        if (connection) await connection.end()
+        //close connection at the end
+    }
+})
+
+app.post('/deleteUserData', async (req, res) => {
+    let connection
+
+    try {
+        connection = await getConnection();
+        console.log(req.body)
+        const { userid } = req.body
+        await connection.query('Delete from User where id = (?)', [userid])
+
+        res.status(200).json({ text: "Success" })
+    } catch (error) {
+        console.log("Error occured in /deleteUserData", error)
+        res.status(500).json({ text: "Server error" })
+    } finally {
+        if (connection) await connection.end()
+        //close connection at the end
+    }
+})
+
+app.post('/deleteUserHabitData', async (req, res) => {
+    let connection
+
+    try {
+        connection = await getConnection();
+        console.log(req.body)
+        const { userid } = req.body
+        await connection.query('Delete from Habit h where h.user_id = (?)', [userid])
+        res.status(200).json({ text: "Success" })
+    } catch (error) {
+        console.log("Error occured in /deleteUserHabitData", error)
+        res.status(500).json({ text: "Server error" })
+    } finally {
+        if (connection) await connection.end()
+        //close connection at the end
+    }
+})
+
 app.listen(PORT, () => {
     console.log(`Running Habit Tracker backend on port: ${PORT}`);
 })
+
+

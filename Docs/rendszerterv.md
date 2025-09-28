@@ -8,5 +8,3 @@
 
 ## 3. View habit page
 ![Alt text](viewhabit_flowchart.png "Habit Tracker page layout.")
-
-## 4. Delete data page

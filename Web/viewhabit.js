@@ -22,20 +22,38 @@ document.addEventListener("DOMContentLoaded", async () => {
     allCells.forEach((cell, index) => {
         console.log("current index: ", index);
         if (daysAgoList.includes(index)) {
-           cell.classList.add("achieved");
+            if (habitType == 1) {
+                cell.classList.add("achieved");
+            } else {
+                cell.classList.add("failed");
+            }
         }
     });
 
     let streakCount = 0;
-    for (let i = 1; ; i++) {
-        if (daysAgoList.includes(i)) {
-            streakCount++;
-        } else {
-            break;
+    if (habitType == 1) {
+        for (let i = 1; ; i++) {
+            if (daysAgoList.includes(i)) {
+                streakCount++;
+            } else {
+                break;
+            }
+        }
+        if (streakCount == 0 && !daysAgoList.includes(0)) {
+            streakCount = 1;
         }
     }
-    if (streakCount == 0 && daysAgoList.includes(0)) {
-        streakCount = 1;
+    else {
+        for (let i = 1; ; i++) {
+            if (daysAgoList.includes(i)) {
+                break;
+            } else {
+                streakCount++;
+            }
+        }
+        if (streakCount == 0 && !daysAgoList.includes(0)) {
+            streakCount = 1;
+        }
     }
 
     const streakElement = document.getElementById("streak-number");

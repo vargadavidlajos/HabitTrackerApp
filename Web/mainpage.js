@@ -69,7 +69,7 @@ async function getHabits() {
     console.log(result);
 
     if (result.text == "Success") {
-        return result
+        return result.data
     } else {
         return null
     }

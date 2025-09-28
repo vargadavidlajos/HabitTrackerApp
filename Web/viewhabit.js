@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const habits = await getHabits();
 
     const params = new URLSearchParams(window.location.search);
-    const habitName = params.get("name");
-    const habitType = params.get("type");
+    const habitId = params.get("habit_id");
+    const habitType = params.get("habit_type");
 
-    const timestamps = getHabitTimestampsByName(habits, habitName);
+    const timestamps = formatTimestamps(habits);
 
     /*const timestamps = [
         "2025-09-25-12-00",
@@ -79,6 +79,22 @@ function calculateDaysAgo(dateStrings) {
         const diffInMs = currentDate - inputDate;
         return Math.floor(diffInMs / msPerDay);
     });
+}
+
+function formatTimestamps(timestamps) {
+    return timestamps
+        .filter(Boolean) // skip null/undefined
+        .map(timestamp => {
+            const date = new Date(timestamp);
+
+            const yyyy = date.getFullYear();
+            const mm = String(date.getMonth() + 1).padStart(2, '0');
+            const dd = String(date.getDate()).padStart(2, '0');
+            const HH = String(date.getHours()).padStart(2, '0');
+            const MM = String(date.getMinutes()).padStart(2, '0');
+
+            return `${yyyy}-${mm}-${dd}-${HH}-${MM}`;
+        });
 }
 
 function getHabitTimestampsByName(habitData, targetHabitName) {
